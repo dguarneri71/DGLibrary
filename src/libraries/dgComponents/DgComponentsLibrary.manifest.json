@@ -1,0 +1,9 @@
+{
+  "id": "ea9e17bc-4369-480a-8544-1021d6f2eaa6",
+  "alias": "DgComponentsLibrary",
+  "componentType": "Library",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2
+}
