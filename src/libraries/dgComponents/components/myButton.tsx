@@ -1,27 +1,28 @@
-import { PrimaryButton } from 'office-ui-fabric-react';
 import * as React from 'react';
+import { PrimaryButton } from 'office-ui-fabric-react';
 import { IMyButtonProps } from './IMyButtonProps';
 
-export class MyButton extends React.Component<IMyButtonProps, {}> {
+export default class MyButton extends React.Component<IMyButtonProps, {}> {
     private timer: number = 0;
     private delay: number = 200;
     private prevent: boolean = false;
 
     constructor(props: IMyButtonProps) {
         super(props);
+
         this.handleClick.bind(this);
         this.handleDoubleClick.bind(this);
     }
 
-    public render(): React.ReactElement<IMyButtonProps> {
+    public render(): React.ReactElement<IMyButtonProps> {       
         return (
             <PrimaryButton
-                onClick={(event) => { this.handleClick(event, this.doClickAction.bind(this)); }}
-                onDoubleClick={(event) => { this.handleDoubleClick(event, this.noop); }}>No Double Click</PrimaryButton>
+                onClick={(event) => { this.handleClick(event, this.props.clickHandler.bind(this)); }}
+                onDoubleClick={(event) => { this.handleDoubleClick(event, this.props.doubleClickHandler.bind(this)); }}>No Double Click</PrimaryButton>
         );
     }
 
-    private doClickAction(): void {
+    /* private doClickAction(): void {
         console.log("CLICK: ");
     }
 
@@ -29,8 +30,7 @@ export class MyButton extends React.Component<IMyButtonProps, {}> {
         console.log("DOUBLE-CLICK: ");
     }
 
-    //Funziona vuota - non fa nulla
-    private noop = () => { };
+    private noop = () => { }; */
 
     private handleClick(event: any, callbackClick: Function): void {
         this._handleClick.bind(this);
