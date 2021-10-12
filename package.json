@@ -1,6 +1,6 @@
 {
   "name": "dg-library",
-  "version": "0.0.3",
+  "version": "0.0.12",
   "private": false,
   "author": "Daniele Guarneri (https://github.com/dguarneri71 https://github.com/s-KaiNet)",
   "description": "Improve your SharePoint Framework development with new components",
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/dguarneri71/DGLibrary",
   "dependencies": {
+    "@pnp/logging": "^2.9.0",
+    "@pnp/sp": "^2.9.0",
     "office-ui-fabric-react": "^7.156.0"
   },
   "devDependencies": {
