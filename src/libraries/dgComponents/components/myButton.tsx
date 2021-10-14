@@ -1,28 +1,35 @@
 import * as React from 'react';
-import { PrimaryButton } from 'office-ui-fabric-react';
+import { IButtonProps, PrimaryButton } from 'office-ui-fabric-react';
 import { IMyButtonProps } from './IMyButtonProps';
+import ComponentWrapper from './please-stop-triggering-clicks-on-double-click';
 
 export class MyButton extends React.Component<IMyButtonProps, {}> {
-    private timer: number = 0;
-    private delay: number = 200;
-    private prevent: boolean = false;
+    // private timer: number = 0;
+    // private delay: number = 200;
+    // private prevent: boolean = false;
 
     constructor(props: IMyButtonProps) {
         super(props);
 
-        this.handleClick.bind(this);
-        this.handleDoubleClick.bind(this);
+        // this.handleClick.bind(this);
+        // this.handleDoubleClick.bind(this);
     }
 
     public render(): React.ReactElement<IMyButtonProps> {
+        let btnProps: IButtonProps = { text: this.props.label };
+        let btn: React.Component = new PrimaryButton(btnProps);
         return (
-            <PrimaryButton
-                onClick={(event) => { this.handleClick(event, this.props.clickHandler); }}
-                onDoubleClick={(event) => { this.handleDoubleClick(event, this.props.doubleClickHandler); }}>{this.props.label}</PrimaryButton>
+            <>
+                <ComponentWrapper
+                    onClick={() => console.log("on click")}
+                    onDoubleClick={() => console.log("on double click")}
+                    WrappedComponent={btn}
+                />
+            </>
         );
     }
 
-    private handleClick(event: any, callbackClick: Function): void {
+    /* private handleClick(event: any, callbackClick: Function): void {
         event.persist();
         this._handleClick.bind(this);
         this.timer = setTimeout(this._handleClick(event, callbackClick), this.delay);
@@ -45,5 +52,5 @@ export class MyButton extends React.Component<IMyButtonProps, {}> {
         if (callbackDoubleClick) {
             callbackDoubleClick(event);
         }
-    }
+    } */
 }
