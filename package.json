@@ -1,6 +1,6 @@
 {
   "name": "dg-library",
-  "version": "0.0.16",
+  "version": "0.0.20",
   "private": false,
   "author": "Daniele Guarneri (https://github.com/dguarneri71 https://github.com/s-KaiNet)",
   "description": "Improve your SharePoint Framework development with new components",
